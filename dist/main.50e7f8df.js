@@ -146,7 +146,7 @@ window.hashMap = xObject || [{
 }];
 
 var simplifyURL = function simplifyURL(url) {
-  return url.replace('https://', '').replace('http://', '').replace("www.", '').replace(/\/.*/, '');
+  return url.replace('https://', '').replace('http://', '').replace("www.", '').replace(/\/.*/, ''); //删除以 / 开头的内容
 };
 
 var render = function render() {
@@ -157,6 +157,7 @@ var render = function render() {
       window.open(node.url);
     });
     $li.on('click', '.close', function (e) {
+      alert("是否删除此站点卡片？");
       e.stopPropagation(); // 点close退出时不会进入a标签
 
       hashMap.splice(index, 1);
@@ -197,4 +198,4 @@ $(document).on('keypress', function (e) {
 
 });
 },{}]},{},["epB2"], null)
-//# sourceMappingURL=main.e8f0fcea.js.map
+//# sourceMappingURL=main.50e7f8df.js.map

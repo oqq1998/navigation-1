@@ -15,7 +15,7 @@ const simplifyURL=(url) => {
     return url.replace('https://', '')
         .replace('http://', '')
         .replace("www.", '')
-        .replace(/\/.*/,'')
+        .replace(/\/.*/,'') //删除以 / 开头的内容
 }
 const render = () => {
     $siteList.find('li:not(.last)').remove()
@@ -39,6 +39,7 @@ const render = () => {
             window.open(node.url)
         })
         $li.on('click', '.close', (e) => {
+            alert("是否删除此站点卡片？")
             e.stopPropagation() 
             // 点close退出时不会进入a标签
             hashMap.splice(index, 1)
