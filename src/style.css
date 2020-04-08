@@ -35,24 +35,28 @@ body{
 h1{
     display: flex;
     justify-content: center;
-    margin-bottom: 45px;
-    margin-top: -30px;
+    margin-bottom: 36px;
+
 }
 .globalHeader{
-    margin: 24px 20px;
+    margin: 30px 20px;
 }
 @media(min-width:500px){
     .globalHeader{
-        margin: 80px 20px 88px;
+        margin-top: 80px;
+        margin-bottom: 60px;
+    }
+    h1{
+        margin-top: -30px;
     }
 }
 .globalHeader> .searchForm{
     display:flex;
-    justify-content: space-between;
+    justify-content: center;
 }
 @media(min-width:500px){
     .searchForm{
-        max-width: 450px;
+        max-width: 410px;
         margin-left:auto; 
         margin-right: auto;
         /* 当元素有最大宽度时可用以上方法居中 */
@@ -67,7 +71,7 @@ h1{
     border:1px solid #ddd;
     /* 覆盖原始input边框 */
     border-radius: 4px;
-    box-shadow:2px 2px 2px rgb(231, 230, 230) ;
+    box-shadow:2px 2px 2px rgb(221, 221, 221) ;
 }
 .globalHeader> .searchForm > button{
     white-space: nowrap;     
@@ -80,7 +84,8 @@ h1{
     border:1px solid #ddd;
     border-radius: 4px;
     background: #1296db;
-    box-shadow:2px 2px 2px rgb(231, 230, 230) ;
+    box-shadow:2px 2px 2px rgb(221, 221, 221) ;
+    cursor: pointer;
 }
 .globalHeader> .searchForm > button .icon{
     width:24px;
@@ -93,10 +98,9 @@ h1{
 }
 
 .siteList{
-    margin:32px 20px;
+    margin:30px 20px;
     display: flex;
     flex-wrap: wrap;
-    margin-right:25px ;
     justify-content: space-between;
 }
 @media(min-width:500px){
@@ -130,7 +134,7 @@ h1{
     position: relative;
     cursor: pointer;
     /* 悬浮时指针显示手形 */
-    box-shadow:2px 2px 2px rgb(231, 230, 230) ;
+    box-shadow:2px 2px 2px rgb(221, 221, 221) ;
 }
 .siteList >li .site> .logo{
     color:#2c2c2c;
@@ -170,7 +174,7 @@ h1{
     align-items: center;
     flex-direction: column;
     cursor: pointer;
-    box-shadow:2px 2px 2px rgb(231, 230, 230) ;
+    box-shadow:2px 2px 2px rgb(221, 221, 221) ;
 }
 .siteList >li .addButton .icon{
     width: 56px;
