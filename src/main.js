@@ -3,13 +3,13 @@ const $lastLi = $siteList.find('li.last')
 const x = localStorage.getItem('x')
 const xObject=JSON.parse(x)
 window.hashMap = xObject || [
-    { logo: "M",url: "https://mdn.io" },
-    { logo: "J",url: "https://juejin.im" },
-    { logo: "Z",url: "https://zhihu.com" },
-    { logo: "C",url: "https://bbs.csdn.net" },
-    { logo: "B",url: "https://bilibili.com" },
-    { logo: "G",url: "https://github.io" },
-    { logo: "I",url: "https://www.iconfont.cn" }
+    { logo: "M", name: "MDN", url: "https://mdn.io" },
+    { logo: "J", name: "掘金", url: "https://juejin.im" },
+    { logo: "Z", name: "知乎", url: "https://zhihu.com" },
+    { logo: "C", name: "CSDN", url: "https://bbs.csdn.net" },
+    { logo: "G", name: "Github", url: "https://github.io" },
+    { logo: "I", name: "Iconfont", url: "https://www.iconfont.cn" },
+    { logo: "N", name: "牛客网", url: "https://www.nowcoder.com/" }
 ]
 const simplifyURL=(url) => {
     return url.replace('https://', '')
@@ -26,7 +26,8 @@ const render = () => {
                          ${node.logo[0]}
                      </div>
                      <div class="link">
-                     ${simplifyURL(node.url)}
+                    <!--${simplifyURL(node.url)}-->
+                        ${node.name}
                      </div>
                      <div class="close">
                         <svg class="icon">
@@ -49,33 +50,54 @@ const render = () => {
 }
 
 render()
-
-$('.addButton')
-    .on('click', () => {
-        let url = window.prompt('请输入新增网址：')
-        if (url.indexOf('http') !== 0) {
-            url = 'https://' + url;
-            // 网址开头不是http时自动在开头添加https
-        }
-    console.log(url)
+const resetInput = () => {
+    $('input[name="name"]').val("");
+    $('input[name="url"]').val("");
+}
+const getInput = () => {
+    let name = $('input[name="name"]').val();
+    let url = $('input[name="url"]').val();
+    console.log(name, url)
+    if (url.indexOf('http') !== 0 && url !== "") {
+        url = 'https://' + url;
+        // 网址开头不是http时自动在开头添加https
+    }
+    if (name === "") {
+        name = simplifyURL(url);
+        // 用户没有填写快捷方式名称时，则把url作为站点名称
+    }
     hashMap.push({
         logo: simplifyURL(url)[0].toUpperCase(),
+        name: name,
         url: url
     })
-    render()
+    resetInput()
+    render()        
+    return name,url
+}
+$('.cancel')
+    .on('click', () => {
+        $('.dialogContainer').hide()
     })
+$('.confirm')
+    .on('click', () => {
+        $('.dialogContainer').hide()
+        getInput()
+    })
+$('.urlInput').on('keyup', () => {
+    if (event.keyCode === 13) {
+        getInput()
+        $('.dialogContainer').hide()
+    }
+})
+$('.addButton')
+    .on('click', () => {
+        $('.dialogContainer').show()        
+})
 
 window.onbeforeunload = ()=>{
     const string = JSON.stringify(hashMap)
     window.localStorage.setItem('x', string)
     // 在用户离开页面时把网址块存到localStorage中
 }
-$(document).on('keypress', (e) => {
-    const key = e.key 
-    for (let i = 0; i < hashMap.length; i++) {
-        if (hashMap[i].logo.toLowerCase() === key) {
-            window.open(hashMap[i].url)
-        }
-    }
-    // 键盘导航:在主页按下某个字母键时可跳转到开头为该字母的网站
-})
+

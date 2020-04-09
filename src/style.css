@@ -31,15 +31,13 @@ img{
 /* style */
 body{
     background: #eee;
+    position: relative;
 }
 h1{
-    display: flex;
-    justify-content: center;
-    margin-bottom: 36px;
-
+    margin-bottom: 30px;
 }
 .globalHeader{
-    margin: 30px 20px;
+    margin: 20px 20px;
 }
 @media(min-width:500px){
     .globalHeader{
@@ -47,6 +45,8 @@ h1{
         margin-bottom: 60px;
     }
     h1{
+        display: flex;
+        justify-content: center;
         margin-top: -30px;
     }
 }
@@ -188,3 +188,74 @@ h1{
     font-size: 16px;
     margin-top: 4px;
 }
+.dialogContainer{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    z-index: 10000;
+    width: 100%;
+    display: none;
+}
+@media(min-width:500px){
+    .dialogContainer{
+        width:400px;
+    }
+}
+.editLinkDialog{
+    background-color: #fff;
+    border-radius: 6px;
+    border:1px solid #ddd;
+    box-shadow: 1px 1px 3px rgb(221, 221, 221) ;
+    margin: 0 20px;
+    padding: 16px;
+}
+.dialogTitle{
+    font-size: 20px;
+    margin-bottom: 16px;
+    color:#2e2e2e;
+}
+.editName{
+    color:#2e2e2e;
+    font-size: 14px;
+    font-weight: 500;
+    margin-bottom: 4px;
+}
+#dialogInput{
+    background-color: rgb(241,243,244);
+    border: none;
+    border-radius: 4px;
+    color:#2e2e2e;
+    font-size: 13px;
+    line-height: 1.6;
+    min-height: 32px;
+    outline: none;
+    padding-inline-end: 8px;
+    padding-inline-start: 8px;
+    width: 100%;
+    margin-bottom: 10px;
+}
+.buttonContainer{
+    position: relative;
+    margin-top: 10px;
+    display: flex;
+    justify-content: flex-end;
+}
+#dialogButton{
+    background-color: #fff;
+    border:1px solid #ddd;
+    box-shadow: 1px 1px 1px rgb(221, 221, 221) ;
+    outline: none;
+    border-radius: 4px;
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 1.6;
+    min-height: 32px;
+    margin-left: 6px;
+    padding: 0 20px;
+    position: relative;
+}
+#dialogButton:active{
+    background-color: rgb(241,243,244);
+}
+
