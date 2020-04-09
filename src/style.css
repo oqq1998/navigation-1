@@ -150,6 +150,7 @@ h1{
     color:#2c2c2c;
     font-size: 16px;
     margin-top: 4px;
+    height: 30px;
 }
 .siteList >li .site> .close{
     position: absolute;
@@ -162,6 +163,11 @@ h1{
 }
 .siteList >li .site:hover > .close{
     display: block;
+}
+@media(max-width:500px){
+.siteList >li .site> .close{
+    display: block;
+}
 }
 .siteList >li .addButton{
     background: white;
@@ -187,6 +193,7 @@ h1{
     color:#2c2c2c;
     font-size: 16px;
     margin-top: 4px;
+    height: 30px;
 }
 .dialogContainer{
     position: fixed;
