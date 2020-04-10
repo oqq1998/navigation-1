@@ -20,21 +20,21 @@ const simplifyURL=(url) => {
 const render = () => {
     $siteList.find('li:not(.last)').remove()
     hashMap.forEach((node,index) => {
-        const $li=$(`<li>
-                 <div class="site">
-                     <div class="logo">
-                         ${node.logo[0]}
-                     </div>
-                     <div class="link">
-                    <!--${simplifyURL(node.url)}-->
-                        ${node.name}
-                     </div>
-                     <div class="close">
-                        <svg class="icon">
-                            <use xlink:href="#icon-close"></use>
-                        </svg>
-                     </div>
-                 </div>
+        const $li = $(
+        `<li>
+            <div class="site">
+                <div class="logo">
+                    ${node.logo[0]}
+                </div>
+                <div class="link">
+                ${node.name}
+                </div>
+                <div class="close">
+                <svg class="icon">
+                    <use xlink:href="#icon-close"></use>
+                </svg>
+                </div>
+            </div>
          </li>`).insertBefore($lastLi)
         $li.on('click', () => {
             window.open(node.url)
@@ -84,7 +84,21 @@ $('.confirm')
         $('.dialogContainer').hide()
         getInput()
     })
-$('.urlInput').on('keyup', () => {
+$('.nameInput')
+    .on('focus', () => {
+        $('.underlineName').fadeIn()
+    })
+    .on('blur', () => {
+        $('.underlineName').fadeOut('fast')
+    })
+$('.urlInput')
+    .on('focus', () => {
+        $('.underlineUrl').fadeIn()
+    })
+    .on('blur', () => {
+        $('.underlineUrl').fadeOut('fast')
+    })
+    .on('keyup', () => {
     if (event.keyCode === 13) {
         getInput()
         $('.dialogContainer').hide()

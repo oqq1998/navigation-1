@@ -99,12 +99,18 @@
         <div class="editLinkDialog">
             <div class="dialogTitle">添加快捷方式</div>
             <p class="editName">名称</p>
-            <input id="dialogInput"  class="nameInput" type="text" name="name" autocomplete="off">
+            <div class="inputContainer">
+                <input id="dialogInput"  class="nameInput" type="text" name="name" autocomplete="off">
+                <div class="underlineName"></div>
+            </div>
             <p class="editName">网址</p>
-            <input id="dialogInput" class="urlInput" type="text" name="url" autocomplete="off">
+            <div class="inputContainer">
+                <input id="dialogInput" class="urlInput" type="text" name="url" autocomplete="off">
+                <div class="underlineUrl"></div>
+            </div>
             <div class="buttonContainer">
-                <button id="dialogButton" class="cancel" type="button">取消</button>
-                <input id="dialogButton" class="confirm" type="submit" value="确认" onclick="getInput()">
+                <button id="dialogButton" class="cancel">取消</button>
+                <button id="dialogButton" class="confirm" type="submit" onclick="getInput()">确认</button>
             </div>
         </div>
     </div>

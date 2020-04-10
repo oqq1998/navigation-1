@@ -159,7 +159,7 @@ var simplifyURL = function simplifyURL(url) {
 var render = function render() {
   $siteList.find('li:not(.last)').remove();
   hashMap.forEach(function (node, index) {
-    var $li = $("<li>\n                 <div class=\"site\">\n                     <div class=\"logo\">\n                         ".concat(node.logo[0], "\n                     </div>\n                     <div class=\"link\">\n                    <!--").concat(simplifyURL(node.url), "-->\n                        ").concat(node.name, "\n                     </div>\n                     <div class=\"close\">\n                        <svg class=\"icon\">\n                            <use xlink:href=\"#icon-close\"></use>\n                        </svg>\n                     </div>\n                 </div>\n         </li>")).insertBefore($lastLi);
+    var $li = $("<li>\n            <div class=\"site\">\n                <div class=\"logo\">\n                    ".concat(node.logo[0], "\n                </div>\n                <div class=\"link\">\n                ").concat(node.name, "\n                </div>\n                <div class=\"close\">\n                <svg class=\"icon\">\n                    <use xlink:href=\"#icon-close\"></use>\n                </svg>\n                </div>\n            </div>\n         </li>")).insertBefore($lastLi);
     $li.on('click', function () {
       window.open(node.url);
     });
@@ -210,7 +210,16 @@ $('.confirm').on('click', function () {
   $('.dialogContainer').hide();
   getInput();
 });
-$('.urlInput').on('keyup', function () {
+$('.nameInput').on('focus', function () {
+  $('.underlineName').fadeIn();
+}).on('blur', function () {
+  $('.underlineName').fadeOut('fast');
+});
+$('.urlInput').on('focus', function () {
+  $('.underlineUrl').fadeIn();
+}).on('blur', function () {
+  $('.underlineUrl').fadeOut('fast');
+}).on('keyup', function () {
   if (event.keyCode === 13) {
     getInput();
     $('.dialogContainer').hide();
@@ -225,4 +234,4 @@ window.onbeforeunload = function () {
   window.localStorage.setItem('x', string); // 在用户离开页面时把网址块存到localStorage中
 };
 },{}]},{},["epB2"], null)
-//# sourceMappingURL=main.0fc3d49a.js.map
+//# sourceMappingURL=main.11faf864.js.map

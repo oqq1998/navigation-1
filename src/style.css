@@ -71,6 +71,7 @@ h1{
     border:1px solid #ddd;
     /* 覆盖原始input边框 */
     border-radius: 4px;
+    outline:none;
     box-shadow:2px 2px 2px rgb(221, 221, 221) ;
 }
 .globalHeader> .searchForm > button{
@@ -151,6 +152,11 @@ h1{
     font-size: 16px;
     margin-top: 4px;
     height: 30px;
+    max-width: 110px;
+    overflow: hidden;
+    text-overflow:ellipsis;
+    white-space: nowrap;
+    word-break: break-all;
 }
 .siteList >li .site> .close{
     position: absolute;
@@ -223,12 +229,12 @@ h1{
 }
 .dialogTitle{
     font-size: 20px;
-    margin-bottom: 16px;
+    margin-bottom: 20px;
     color:#2e2e2e;
 }
 .editName{
     color:#2e2e2e;
-    font-size: 14px;
+    font-size: 12px;
     font-weight: 500;
     margin-bottom: 4px;
 }
@@ -244,13 +250,17 @@ h1{
     padding-inline-end: 8px;
     padding-inline-start: 8px;
     width: 100%;
-    margin-bottom: 10px;
 }
+
 .buttonContainer{
     position: relative;
-    margin-top: 10px;
+    margin: 10px 0;
     display: flex;
     justify-content: flex-end;
+}
+.inputContainer{
+    height: 40px;
+    margin-bottom: 6px;
 }
 #dialogButton{
     background-color: #fff;
@@ -269,4 +279,12 @@ h1{
 #dialogButton:active{
     background-color: rgb(241,243,244);
 }
-
+.underlineUrl{
+    border-bottom: 1.6px solid rgb(26, 136, 232);
+    display: none;
+    /* transition: opacity 150ms ease-out, width 0ms linear 180ms; */
+}
+.underlineName{
+    border-bottom: 1.6px solid rgb(26, 136, 232);
+    display: none;
+}
